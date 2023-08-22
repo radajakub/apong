@@ -6,8 +6,10 @@ CFLAGS =-g -std=gnu99 -O1 -Wall
 CXXFLAGS = -g -std=gnu++11 -O1 -Wall
 LDFLAGS = -lrt -lpthread
 
-SOURCES = pong.c mzapo_phys.c mzapo_parlcd.c graphics.c text.c settings.c menu.c peripherals.c game.c game_view.c player_input.c log.c basic_ai.c better_ai.c
-SOURCES += wArial_44.c wArial_88.c
+FILE_SOURCES = pong.c mzapo_phys.c mzapo_parlcd.c graphics.c text.c settings.c menu.c peripherals.c game.c game_view.c player_input.c log.c basic_ai.c better_ai.c
+FILE_SOURCES += wArial_44.c wArial_88.c
+SOURCES = $(addprefix src/, $(FILE_SOURCES))
+
 TARGET_EXE = pong
 #TARGET_IP ?= 192.168.202.127
 ifeq ($(TARGET_IP),)
